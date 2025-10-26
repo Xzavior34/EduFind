@@ -1,0 +1,19 @@
+{
+  "name": "edufind",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed:courses": "node scripts/seedCourses.js",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "fuse.js": "^6.6.2",
+    "firebase-admin": "^11.0.0",
+    "next": "14.0.0",
+    "react": "18.x",
+    "react-dom": "18.x"
+  }
+}
