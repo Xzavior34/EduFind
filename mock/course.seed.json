@@ -1,0 +1,58 @@
+[
+  {
+    "id": "c001",
+    "slug": "intro-generative-ai",
+    "title": "Intro to Generative AI",
+    "short_description": "Foundations of generative models, hands-on demos.",
+    "long_description": "Original content: learn concepts and implement small projects.",
+    "thumbnail_url": "https://picsum.photos/seed/c001/600/400",
+    "duration_minutes": 180,
+    "level": "Beginner",
+    "category": "AI",
+    "tags": ["generative-ai","llm","transformers"],
+    "price": 0,
+    "is_free": true,
+    "avg_rating": 4.7,
+    "review_count": 124,
+    "published_at": "2025-03-10T12:00:00Z",
+    "instructor": { "id":"i01","name":"Ada N.","bio":"ML engineer","avatar_url":"https://ui-avatars.com/api/?name=A+N" },
+    "syllabus":[{"title":"Intro","lessons":[{"title":"What is Generative AI?","duration":12}]}]
+  },
+  {
+    "id":"c002",
+    "slug":"python-data-fundamentals",
+    "title":"Python for Data Fundamentals",
+    "short_description":"Essential Python skills for data tasks.",
+    "long_description":"Learn to use Python for data cleaning, analysis, and visualization.",
+    "thumbnail_url":"https://picsum.photos/seed/c002/600/400",
+    "duration_minutes":240,
+    "level":"Beginner",
+    "category":"Data Science",
+    "tags":["python","pandas","data-cleaning"],
+    "price":5.99,
+    "is_free":false,
+    "avg_rating":4.4,
+    "review_count":85,
+    "published_at":"2024-11-02T09:00:00Z",
+    "instructor":{ "id":"i02","name":"Bayo L.","bio":"Data Analyst","avatar_url":"https://ui-avatars.com/api/?name=B+L" }
+  },
+  {
+    "id":"c003",
+    "slug":"advanced-ml-practices",
+    "title":"Advanced ML Practices",
+    "short_description":"Model deployment, monitoring, and MLOps.",
+    "long_description":"Best practices for operationalizing machine learning models.",
+    "thumbnail_url":"https://picsum.photos/seed/c003/600/400",
+    "duration_minutes":360,
+    "level":"Advanced",
+    "category":"Machine Learning",
+    "tags":["mlops","deployment","monitoring"],
+    "price":12.99,
+    "is_free":false,
+    "avg_rating":4.6,
+    "review_count":42,
+    "published_at":"2025-01-15T08:00:00Z",
+    "instructor":{ "id":"i03","name":"Chidi O.","bio":"MLOps Engineer","avatar_url":"https://ui-avatars.com/api/?name=C+O" }
+  }
+  // ... 17 more, see next batch!
+]
