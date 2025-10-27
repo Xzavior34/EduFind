@@ -1,6 +1,6 @@
 // POST /api/search
 import type { NextApiRequest, NextApiResponse } from "next";
-import { searchCoursesWithScoring } from "./_lib/search";
+import { searchCoursesWithScoring } from "./_libs/search";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
