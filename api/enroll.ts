@@ -1,7 +1,7 @@
 // POST /api/enroll (auth)
 import type { NextApiRequest, NextApiResponse } from "next";
-import { verifyFirebaseIdToken } from "./_lib/auth";
-import { enrollUserInCourse } from "./_lib/db";
+import { verifyFirebaseIdToken } from "./_libs/auth";
+import { enrollUserInCourse } from "./_libs/db";
 import emailjs from "@emailjs/browser";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
