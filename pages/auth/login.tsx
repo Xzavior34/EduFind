@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../api/_libs/firebase'
+import { auth } from '@/libs/firebase'
+import { sendLoginNotification } from '@/utils/email'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -16,8 +17,12 @@ export default function Login() {
       const userCred = await signInWithEmailAndPassword(auth, email, password)
       const token = await userCred.user.getIdToken()
       localStorage.setItem('firebaseToken', token)
+
+      await sendLoginNotification(email)
+
       router.push('/dashboard')
     } catch (err: any) {
+      console.error(err)
       setError('Failed to login. Please check your credentials.')
     }
   }
@@ -27,6 +32,7 @@ export default function Login() {
       <form onSubmit={onSubmit} className="bg-white p-8 rounded-md shadow-md w-full max-w-md">
         <h1 className="text-2xl font-semibold mb-4">Login</h1>
         {error && <div className="text-red-500 mb-2">{error}</div>}
+        
         <input
           type="email"
           value={email}
@@ -43,16 +49,15 @@ export default function Login() {
           className="w-full mb-3 px-4 py-2 border rounded-md"
           required
         />
-        <button
-          type="submit"
-          className="w-full bg-cta text-white rounded-md px-4 py-2 font-medium shadow-sm"
-        >
+        
+        <button type="submit" className="w-full bg-cta text-white rounded-md px-4 py-2 font-medium shadow-sm">
           Login
         </button>
+
         <div className="mt-3 text-sm">
           Don't have an account? <a href="/auth/signup" className="text-accent">Sign up</a>
         </div>
       </form>
     </main>
   )
-  }
+        }
