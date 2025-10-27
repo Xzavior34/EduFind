@@ -1,7 +1,7 @@
 // POST /api/users (create profile)
 import type { NextApiRequest, NextApiResponse } from "next";
-import { verifyFirebaseIdToken } from "./_lib/auth";
-import { createUserProfile } from "./_lib/db";
+import { verifyFirebaseIdToken } from "./_libs/auth";
+import { createUserProfile } from "./_libs/db";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
