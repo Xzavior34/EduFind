@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Fuse from "fuse.js";
 import fs from "fs";
 import path from "path";
-import { getFirestore } from "./_libs/firebaseAdmin";
+import { getFirestore } from "./firebaseAdmin";
 
 export interface Course {
   id: string;
