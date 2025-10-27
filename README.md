@@ -1,4 +1,4 @@
-# EduFind ```markdown
+
 # EduFind (Vercel-ready)
 
 This branch is configured to run on Vercel, using local mock course data and optional Firebase Firestore persistence.
