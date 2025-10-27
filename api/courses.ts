@@ -3,8 +3,8 @@
 // This route provides simple listing and quick query passthrough to search (GET uses q param).
 
 import type { NextApiRequest, NextApiResponse } from "next";
-import { searchCoursesWithScoring } from "../../api/_lib/search";
-import { getCourses } from "../../api/_lib/db";
+import { searchCoursesWithScoring } from "../../api/_libs/search";
+import { getCourses } from "../../api/_libs/db";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {
