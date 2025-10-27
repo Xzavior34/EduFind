@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../api/_libs/firebase'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -12,7 +13,6 @@ export default function Login() {
     e.preventDefault()
     setError('')
     try {
-      const auth = getAuth()
       const userCred = await signInWithEmailAndPassword(auth, email, password)
       const token = await userCred.user.getIdToken()
       localStorage.setItem('firebaseToken', token)
@@ -55,4 +55,4 @@ export default function Login() {
       </form>
     </main>
   )
-}
+  }
