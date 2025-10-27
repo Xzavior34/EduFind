@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../api/_libs/firebase'
+import { auth } from '@/libs/firebase'
+import { sendWelcomeEmail } from '@/utils/email'
 
 export default function Signup() {
   const [email, setEmail] = useState('')
@@ -14,10 +15,13 @@ export default function Signup() {
     e.preventDefault()
     setError('')
     setLoading(true)
+
     try {
       const userCred = await createUserWithEmailAndPassword(auth, email, password)
       const token = await userCred.user.getIdToken()
       localStorage.setItem('firebaseToken', token)
+
+      await sendWelcomeEmail(email)
 
       await fetch('/api/users', {
         method: 'POST',
@@ -33,6 +37,7 @@ export default function Signup() {
       console.error(err)
       setError('Failed to sign up. Try a different email.')
     }
+
     setLoading(false)
   }
 
@@ -70,4 +75,4 @@ export default function Signup() {
       </form>
     </main>
   )
-                  }
+    }
