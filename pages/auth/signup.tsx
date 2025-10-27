@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
-import emailjs from '@emailjs/browser'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../api/_libs/firebase'
 
 export default function Signup() {
   const [email, setEmail] = useState('')
@@ -15,25 +15,22 @@ export default function Signup() {
     setError('')
     setLoading(true)
     try {
-      const auth = getAuth()
       const userCred = await createUserWithEmailAndPassword(auth, email, password)
       const token = await userCred.user.getIdToken()
       localStorage.setItem('firebaseToken', token)
-      // Create profile in Lovable Cloud
+
       await fetch('/api/users', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
         body: JSON.stringify({ uid: userCred.user.uid, email })
       })
-      // Send welcome email via EmailJS
-      await emailjs.send(
-        process.env.EMAILJS_SERVICE_ID!,
-        process.env.EMAILJS_TEMPLATE_WELCOME!,
-        { name: email },
-        process.env.EMAILJS_PUBLIC_KEY
-      )
+
       router.push('/dashboard')
     } catch (err: any) {
+      console.error(err)
       setError('Failed to sign up. Try a different email.')
     }
     setLoading(false)
@@ -73,4 +70,4 @@ export default function Signup() {
       </form>
     </main>
   )
-}
+                  }
