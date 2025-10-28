@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '@/libs/firebase'
+import { auth } from '@/_libs/firebase'
 import { sendLoginNotification } from '@/utils/email'
 
 export default function Login() {
