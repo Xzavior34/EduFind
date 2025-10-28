@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from '@/_libs/firebase'
+import { auth } from '@/api/_libs/firebase'
 
 export default function Dashboard() {
   const router = useRouter()
